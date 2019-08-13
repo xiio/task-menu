@@ -4,16 +4,18 @@
 ## Table of Contents
 - [Task description](#task-description)
 - [Routes](#routes)
-- [Bonus](#bonus)
+- [Bonus points](#bonus-points)
 
 
 ## Task Description
 
-Fork or Download this repository and write a program to manage a menu.
+Fork or Download this repository and implement the logic to manage a menu.
 
-Site menu has depth of **N** and maximum number of items per layer **M**. Consider **N** and **M** to be dynamic for bonus points.
+A Menu has a depth of **N** and maximum number of items per layer **M**. Consider **N** and **M** to be dynamic for bonus points.
 
-It should be possible to use the program by sending API requests.
+It should be possible to manage the menu by sending API requests. Do not implement a frontend for this task.
+
+Feel free to add comments or considerations when submitting the response at the end of the `README`.
 
 
 ### Example menu
@@ -40,7 +42,7 @@ Create a menu.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -49,9 +51,9 @@ Create a menu.
 
 ```json
 {
-    field: "value",
-    max_depth: 5,
-    max_children: 5
+    "field": "value",
+    "max_depth": 5,
+    "max_children": 5
 }
 ```
 
@@ -60,7 +62,7 @@ Create a menu.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -69,9 +71,9 @@ Create a menu.
 
 ```json
 {
-    field: "value",
-    max_depth: 5,
-    max_children: 5
+    "field": "value",
+    "max_depth": 5,
+    "max_children": 5
 }
 ```
 
@@ -85,7 +87,7 @@ Get the menu.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -94,9 +96,9 @@ Get the menu.
 
 ```json
 {
-    field: "value",
-    max_depth: 5,
-    max_children: 5
+    "field": "value",
+    "max_depth": 5,
+    "max_children": 5
 }
 ```
 
@@ -110,7 +112,7 @@ Update the menu.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -119,9 +121,9 @@ Update the menu.
 
 ```json
 {
-    field: "value",
-    max_depth: 5,
-    max_children: 5
+    "field": "value",
+    "max_depth": 5,
+    "max_children": 5
 }
 ```
 
@@ -130,7 +132,7 @@ Update the menu.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -139,9 +141,9 @@ Update the menu.
 
 ```json
 {
-    field: "value",
-    max_depth: 5,
-    max_children: 5
+    "field": "value",
+    "max_depth": 5,
+    "max_children": 5
 }
 ```
 
@@ -161,10 +163,10 @@ Create menu items.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -175,19 +177,19 @@ Create menu items.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -198,10 +200,10 @@ Create menu items.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -212,19 +214,19 @@ Create menu items.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -240,10 +242,10 @@ Get all menu items.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -254,19 +256,19 @@ Get all menu items.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -286,7 +288,7 @@ Create an item.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -295,7 +297,7 @@ Create an item.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -309,7 +311,7 @@ Get the item.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -323,7 +325,7 @@ Update the item.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -332,7 +334,7 @@ Update the item.
 
 ```json
 {
-    field: "value"
+    "field": "value"
 }
 ```
 
@@ -352,10 +354,10 @@ Create item's children.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -366,19 +368,19 @@ Create item's children.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -389,10 +391,10 @@ Create item's children.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -403,19 +405,19 @@ Create item's children.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -431,10 +433,10 @@ Get all item's children.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -445,19 +447,19 @@ Get all item's children.
 ```json
 [
     {
-        field: "value",
-        children: [
+        "field": "value",
+        "children": [
             {
-                field: "value",
-                children: []
+                "field": "value",
+                "children": []
             },
             {
-                field: "value"
+                "field": "value"
             }
         ]
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -478,10 +480,10 @@ Get all menu items in a layer.
 ```json
 [
     {
-        field: "value"
+        "field": "value"
     },
     {
-        field: "value"
+        "field": "value"
     }
 ]
 ```
@@ -501,12 +503,12 @@ Get depth of menu.
 
 ```json
 {
-    depth: 5
+    "depth": 5
 }
 ```
 
 
-## Bonus
+## Bonus points
 
 * 10 vs 1.000.000 menu items - what would you do differently?
 * Write documentation
