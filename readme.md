@@ -17,6 +17,14 @@ It should be possible to manage the menu by sending API requests. Do not impleme
 
 Feel free to add comments or considerations when submitting the response at the end of the `README`.
 
+## Considerations
+
+Fork this repository and return a public git link, to present the task.
+
+Git history will be reviewed aswell as part of this task.
+
+If you don't have time to implement a part of the system but you know how, try create the placeholder and write comments with the intended behaviour.
+
 
 ### Example menu
 
@@ -516,3 +524,4 @@ Get depth of menu.
 * Use cache
 * Use data structures
 * Use docker
+* Implement tests
