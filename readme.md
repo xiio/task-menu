@@ -1,25 +1,24 @@
 # Menu manager
 
-
 ## Table of Contents
+- [How to submit the task](#how-to-submit-the-task)
 - [Task description](#task-description)
+- [Considerations](#considerations)
 - [Routes](#routes)
 - [Bonus points](#bonus-points)
 
+## How to submit the task
+
+Fork this repository and implement the logic. Make a pull request to the original repository once you complete the work. This will be eventually rejected, regardless of the correctness of the code.
 
 ## Task Description
 
-Fork or Download this repository and implement the logic to manage a menu.
-
-A Menu has a depth of **N** and maximum number of items per layer **M**. Consider **N** and **M** to be dynamic for bonus points.
-
-It should be possible to manage the menu by sending API requests. Do not implement a frontend for this task.
-
-Feel free to add comments or considerations when submitting the response at the end of the `README`.
+- A Menu has a depth of **N** and maximum number of items per layer **M**. Consider **N** and **M** to be dynamic for bonus points.
+- It should be possible to manage the menu by sending API requests.
+- Do not implement a frontend for this task.
+- Feel free to add comments or considerations when submitting the response at the end of the `README`.
 
 ## Considerations
-
-Fork this repository and return a public git link, to present the task.
 
 Git history will be reviewed aswell as part of this task.
 
@@ -522,6 +521,5 @@ Get depth of menu.
 * Write documentation
 * Use PhpCS | PhpCsFixer | PhpStan
 * Use cache
-* Use data structures
 * Use docker
 * Implement tests
