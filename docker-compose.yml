@@ -16,7 +16,7 @@ services:
       WEB_DOCUMENT_ROOT: /app/public
 
   mysql:
-    container_name: menu_mysql1
+    container_name: menu_mysql
     image: mysql:5.6
     networks:
       cobiro:
