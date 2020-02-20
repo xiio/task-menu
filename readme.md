@@ -523,3 +523,10 @@ Get depth of menu.
 * Use cache
 * Use docker
 * Implement tests
+
+
+## TODO
+
+### Security
+- App is using MySql on root account. Create dedicated user with right permissions.
+- Docker compose config is really basic

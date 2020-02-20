@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  web:
+    container_name: menu_web
+    image: webdevops/php-nginx:7.3
+    depends_on:
+      - mysql
+    networks:
+      cobiro:
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+
+  mysql:
+    container_name: menu_mysql1
+    image: mysql:5.6
+    networks:
+      cobiro:
+        aliases: ["mysql.local"]
+    ports:
+      - "31336:3306"
+    volumes:
+      - cobiro_menu_mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "${MYSQL_DB_DATABASE}"
+      MYSQL_USER: "${MYSQL_DB_USERNAME}"
+      MYSQL_PASSWORD: "${MYSQL_DB_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+
+networks:
+  cobiro:
+
+volumes:
+  cobiro_menu_mysql:
