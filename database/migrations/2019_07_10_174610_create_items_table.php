@@ -14,10 +14,12 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
-            //
-
+            $table->char('id', 13)->primary();
+            $table->char('menu_id', 13);
+            $table->char('parent_id', 13)->nullable(true)->default(null)->index();
+            $table->string('name', 255);
+            $table->integer('depth')->unsigned()->default(0);
+            $table->foreign('menu_id')->references('id')->on('menus')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
