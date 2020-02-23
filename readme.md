@@ -525,8 +525,36 @@ Get depth of menu.
 * Implement tests
 
 
-## TODO
+# TKsionek Notices
+## Dirs
+* app/Domain: Domain logic 
+* app/Modules: App layer domain implementation
 
-### Security
+## Bonus points
+* 10 vs 1.000.000 menu items - what would you do differently? - 
+    - We can use queues to do async job for creating items.
+    - Cache
+    - We can use CQRS to separate write/read optimised storage. 
+* Write documentation - i wrote phpdoc comments. I was trying to be verbose. 
+* Use cache - cache is used only for MenuRepository. I used decorator pattern to wrap real repository with cacheRepository.
+* Use docker - see docker-composer.yml
+* Coding standard tools
+    - PhpCsFixer: used
+    - PhpCS: 
+    - PhpStan: used
+    - SonarLint: used
+
+## CONSIDERATIONS
+* I dont know we prefer to use uuid or auto increment id in mysql. In my opinion generated id's are more flexible. We can use it with async (queues) writes.
+* I use Eloquent AC, but i prefer to use Doctrine. In my opinion ActiveRecord is AntiPattern. AC break for ex. SRP. I separate infrastructure layer from domain layer manually. In Doctrine we have native mechanism to keep entity as clean php object without inheritance. 
+* I omit creating some helper methods (ex. to standardize json response). In controllers can be a bit redundant code. It's good practice to create dedicated controller for api responses with factory methods.
+* I do some over engineering. I have separated layers (domain, infrastructure etc) to achieve more flexibility. It's possible to do this CRUD simpler.
+* Items depth is counting from 0.
+* I don't really know what is "layer". I assume that is a level of nesting but i'm not sure.
+* I like to keep all thinks connected with module (Menu) in one place. But here i resign from reconfiguring Laravel to search for controllers in other place. If you want to know more please feel free to ask :)
+* I've created RedisMenuRepository for cache handling. But i don't implement caching layer. It's just to show my idea.
+* More unit tests needed. I just cover basic requirements.
+ 
+## Security
 - App is using MySql on root account. Create dedicated user with right permissions.
-- Docker compose config is really basic
+- Docker compose config is really basic.
