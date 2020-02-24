@@ -7,8 +7,10 @@
 
 namespace App\Domain\Menu\Entity;
 
+use _HumbugBox069fea7e7fc7\Nette\Schema\ValidationException;
 use App\Domain\Menu\Exception\ChildrenLimitExceeded;
 use App\Domain\Menu\Exception\NestingDepthLimitExceeded;
+use App\Domain\Menu\Exception\ValidationFailed;
 
 /**
  * Menu item
@@ -58,6 +60,11 @@ class Item implements \JsonSerializable
     private $menuId;
 
     /**
+     * @var Menu
+     */
+    private $menu;
+
+    /**
      * @param Menu $menu
      * @param null $parentId
      * @param $id
@@ -73,10 +80,11 @@ class Item implements \JsonSerializable
 
         $this->id = $id;
         $this->parentId = $parentId;
+        $this->menu = $menu;
         $this->menuId = $menu->getId();
         $this->name = $name;
         $this->depth = $depth;
-        $this->maxDepth =  $menu->getMaxDepth();
+        $this->maxDepth = $menu->getMaxDepth();
         $this->maxChildren = $menu->getMaxChildren();
 
         foreach ($children as $child) {
@@ -100,6 +108,11 @@ class Item implements \JsonSerializable
         $this->children[] = $child;
     }
 
+    public function getChildrenFor(Item $item) : ?Item
+    {
+
+    }
+
     /**
      * @return mixed
      */
@@ -114,6 +127,19 @@ class Item implements \JsonSerializable
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $itemNewName
+     */
+    public function setName(string $itemNewName): void
+    {
+        if (strlen($itemNewName) === 0) {
+            $validationException = new ValidationFailed("Name is invalid!");
+            $validationException->addError('name', 'Name is empty!', $itemNewName);
+            return;
+        }
+        $this->name = $itemNewName;
     }
 
     /**
@@ -146,6 +172,14 @@ class Item implements \JsonSerializable
     public function getMenuId()
     {
         return $this->menuId;
+    }
+
+    /**
+     * @return Menu
+     */
+    public function getMenu() : Menu
+    {
+        return $this->menu;
     }
 
     /**
@@ -218,4 +252,5 @@ class Item implements \JsonSerializable
     {
         return (bool)$this->parentId;
     }
+
 }

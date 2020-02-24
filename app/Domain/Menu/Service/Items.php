@@ -131,15 +131,15 @@ class Items
      * @param array $items
      * @return bool
      */
-    public function persistAll(array $items): bool
+    public function persistAll(array $items): int
     {
         $affectedRowsCount = 0;
         /** @var Entity\Item $item */
         foreach ($items as $item) {
-            $affectedRowsCount = (bool)$this->itemRepository->persist($item);
+            $affectedRowsCount += (bool)$this->itemRepository->persist($item);
 
             if ($item->hasChildren()) {
-                $this->persistAll($item->getChildren());
+                $affectedRowsCount += $this->persistAll($item->getChildren());
             }
         }
 
@@ -147,12 +147,38 @@ class Items
     }
 
     /**
-     * @param $menu
+     * @param Entity\Item $item
+     * @return bool
+     */
+    public function persist(Entity\Item $item) : bool {
+        return (bool)$this->itemRepository->persist($item);
+    }
+
+    /**
+     * @param Menu $menu
      * @return Entity\Item[]
      */
-    public function getAllForMenu($menu) : array
+    public function getAllForMenu(Menu $menu) : array
     {
         return $this->itemRepository->getAllByMenu($menu);
+    }
+
+    /**
+     * @param $itemId
+     * @return array|null null = not found
+     */
+    public function getChildrenByItemId($itemId) : ?array
+    {
+        return $this->itemRepository->getChildren($itemId);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function deleteById($id): bool
+    {
+        return $this->itemRepository->deleteById($id);
     }
 
     /**
@@ -161,7 +187,7 @@ class Items
      */
     public function deleteByMenuId($menuId) : int
     {
-        return $this->itemRepository->deleteById($menuId);
+        return $this->itemRepository->deleteByMenuId($menuId);
     }
 
     /**
@@ -173,4 +199,6 @@ class Items
     {
         return $this->itemRepository->getDepthByMenuId($menuId);
     }
+
+
 }

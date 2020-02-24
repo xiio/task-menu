@@ -31,7 +31,7 @@ class MenuServiceProvider extends ServiceProvider
             $menuCacheRepository = new RedisMenuRepository(new EloquentMenuRepository());
             return new Menu(
                 $menuCacheRepository,
-                new EloquentItemRepository(),
+                new EloquentItemRepository($menuCacheRepository),
                 new UniqueIdIdentityGenerator()
             );
         });

@@ -25,18 +25,38 @@ interface ItemRepository
      * @param Menu $menu
      * @return Entity\Item[]
      */
-    public function getAllByMenu(Menu $menu) : array;
+    public function getAllByMenu(Menu $menu): array;
 
     /**
      * @param $menuId
      * @return int items deleted
      */
-    public function deleteById($menuId);
+    public function deleteByMenuId($menuId): int;
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function deleteById($id): bool;
 
     /**
      * Get items depth by menu id
      * @param $menuId
      * @return int|null null = menu not found
      */
-    public function getDepthByMenuId($menuId);
+    public function getDepthByMenuId($menuId): ?int;
+
+    /**
+     * Get item whiteout children preloaded
+     *
+     * @param $id
+     * @return Item|null
+     */
+    public function getById($id) : ?Item;
+
+    /**
+     * @param $parentItemId
+     * @return array|null
+     */
+    public function getChildren($parentItemId): ?array;
 }

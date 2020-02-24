@@ -554,7 +554,8 @@ Get depth of menu.
 * I like to keep all thinks connected with module (Menu) in one place. But here i resign from reconfiguring Laravel to search for controllers in other place. If you want to know more please feel free to ask :)
 * I've created RedisMenuRepository for cache handling. But i don't implement caching layer. It's just to show my idea.
 * More unit tests needed. I just cover basic requirements.
- 
+* I've used "Adjacency List" approach but over there is another approach called "Nested Set Model" with left/right reference.
+
 ## Security
 - App is using MySql on root account. Create dedicated user with right permissions.
 - Docker compose config is really basic.

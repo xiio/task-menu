@@ -7,10 +7,25 @@ use App\Domain\Menu\Entity\Item;
 use App\Domain\Menu\Entity\Menu;
 use App\Domain\Menu\Persistence\ItemRepository;
 
+use App\Domain\Menu\Persistence\MenuRepository;
 use App\Modules\Menu\Models as Models;
 
 class EloquentItemRepository implements ItemRepository
 {
+
+    /**
+     * @var MenuRepository
+     */
+    private $menuRepository;
+
+    /**
+     * EloquentItemRepository constructor.
+     * @param MenuRepository $menuRepository
+     */
+    public function __construct(MenuRepository $menuRepository)
+    {
+        $this->menuRepository = $menuRepository;
+    }
 
     /**
      * @inheritDoc
@@ -59,9 +74,17 @@ class EloquentItemRepository implements ItemRepository
     /**
      * @inheritDoc
      */
-    public function deleteById($menuId): int
+    public function deleteByMenuId($menuId): int
     {
         return Models\Item::where('menu_id', $menuId)->delete();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function deleteById($id): bool
+    {
+        return Models\Item::destroy($id);
     }
 
     private function buildItemsTree(array $flatItems)
@@ -85,21 +108,53 @@ class EloquentItemRepository implements ItemRepository
     /**
      * @inheritDoc
      */
-    public function getDepthByMenuId($menuId) : ?int
+    public function getDepthByMenuId($menuId): ?int
     {
         return Models\Item::where('menu_id', $menuId)->max('depth');
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getById($id): ?Item
+    {
+        $dbItem = Models\Item::find($id);
+
+        if (!$dbItem) {
+            return null;
+        }
+        $menu = $this->menuRepository->getById($dbItem->menu_id);
+        return $dbItem->convertToDomainEntity($menu);
+    }
+
+    /**
+     * @param $parentItemId
+     * @return array|null null = parent not found
+     */
+    public function getChildren($parentItemId): ?array
+    {
+        $item = $this->getById($parentItemId);
+        if (!$item) {
+            return null;
+        }
+        $dbItems = Models\Item::where('menu_id', $item->getMenuId())->get()->all();
+        $domainItems = [];
+        foreach ($dbItems as $dbItem) {
+            $domainItems[] = $dbItem->convertToDomainEntity($item->getMenu());
+        }
+
+        return $this->getChildrenFor($parentItemId, $domainItems);
+    }
+
+    /**
      * @param $parentId
-     * @param array $flatItems
+     * @param Item[] $flatItems
      * @return array
      */
     private function getChildrenFor($parentId, array $flatItems)
     {
         $parentItems = [];
 
-        /** @var Item $item */
         foreach ($flatItems as $item) {
             if ($item->getParentId() !== $parentId) {
                 continue;
