@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "bba90fea-baea-4ef4-b96e-f80339438ffd",
+		"name": "Cobiro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "Menu - show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu - create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/menus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu - update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Footer1\",\n    \"max_depth\": 1,\n    \"max_children\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e50d77b43b5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e50d77b43b5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu - delete",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Footer1\",\n    \"max_depth\": 1,\n    \"max_children\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e50d77b43b5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e50d77b43b5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu - depth",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Footer1\",\n    \"max_depth\": 1,\n    \"max_children\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e50d77b43b5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e50d77b43b5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu Items - create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e51631d0d00a/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e51631d0d00a",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu Items - show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e51631d0d00a/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e51631d0d00a",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Menu Items - delete",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e51631d0d00a/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e51631d0d00a",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items - show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/menus/5e51631d0d00a/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"menus",
+								"5e51631d0d00a",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items - create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"menu item 1234\",\n\t\"menu_id\": \"5e504b05c38fa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items - delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"menu item 1234\",\n\t\"menu_id\": \"5e504b05c38fa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items/5e536aba7c082",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items",
+								"5e536aba7c082"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items children - show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items/5e527dadd0080/children",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items",
+								"5e527dadd0080",
+								"children"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items children - create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items/5e527dadd0080/children",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items",
+								"5e527dadd0080",
+								"children"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items children - delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"subMenu1\",\n        \"children\": [\n            {\n                \"name\": \"subSubMenu1\",\n                \"children\": []\n            },\n            {\n                \"name\": \"subSubMenu2\"\n            }\n        ]\n    },\n    {\n        \"name\": \"subMenu2\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/items/5e527dadd0080/children",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"items",
+								"5e527dadd0080",
+								"children"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

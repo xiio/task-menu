@@ -529,6 +529,7 @@ Get depth of menu.
 ## Dirs
 * app/Domain: Domain logic 
 * app/Modules: App layer domain implementation
+* dev - Development assets. (Postman files etc.)
 
 ## Bonus points
 * 10 vs 1.000.000 menu items - what would you do differently? - 
